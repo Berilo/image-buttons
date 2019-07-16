@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View.OnClickListener" />
+
+        <variable
+            name="type"
+            type="String" />
+
+        <variable
+            name="listener"
+            type="com.tech387.imagebuttons.MainListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintLeft_toLeftOf="@id/button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            app:carPart="@{type}"
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_button"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:onClick="@{() -> listener.onCarClick(type)}"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:text="Button Text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
